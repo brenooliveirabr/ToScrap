@@ -25,7 +25,7 @@ for i in range(1,10):
     autor_padrao_inicio='<span>by <small class="author" itemprop="author">' 
     autor_padrao_fim='</small>'
 
-    with open('citacoes.csv','a',encoding='utf-8') as f:
+    with open('./citacoes.txt','a',encoding='utf-8') as f:
         
         
     #Percorre linha por linha do HTML. De início o HTML é considerado como um Bloco inteiro.
@@ -35,6 +35,8 @@ for i in range(1,10):
             if  frase_padrao_inicio in line:
                 #Remove os padrões da linha, assim como as chaves, ficando apenas com o texto
                 line=line.replace(frase_padrao_inicio,'').replace(frase_padrao_fim,'').replace('“','').replace('”','')
+                
+                #Remove os espaços em branco da linha
                 frase=line.strip()
             # print(line)
                     
@@ -42,9 +44,10 @@ for i in range(1,10):
             if  autor_padrao_inicio in line:
                 #Remove os padrões da linha, assim como as chaves, ficando apenas com o texto
                 line=line.replace(autor_padrao_inicio,'').replace(autor_padrao_fim,'')#.replace('“','').replace('”','')
+                
+                #Remove os espaços em branco da linha
                 autor=line.strip()
                 
                 
-                print(autor+','+frase+'\n')
-                f.write(autor+','+frase+'\n')
-                #f.write('\n')
+                
+                f.write(frase + "\n" + "--" + autor+'\n'+'\n')
