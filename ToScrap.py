@@ -50,4 +50,5 @@ for i in range(1,10):
                 
                 
                 
+                
                 f.write(frase + "\n" + "--" + autor+'\n'+'\n')
